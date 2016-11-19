@@ -29,29 +29,14 @@ staticPages =
 
 --------------------------------------------------------------------------------
 
-blogCtx :: Tags -> Context String
-blogCtx tags = mconcat
-    [ modificationTimeField "mtime" "%U"
-    , dateField "date" "%e %B %Y"
-    , tagsField "tags" tags
-    , defaultContext
-    ]
-
-talkCtx :: Context String
-talkCtx = mconcat
-    [ modificationTimeField "mtime" "%U"
-    , dateField "date" "%e %B %Y"
-    , defaultContext
-    ]
-
---------------------------------------------------------------------------------
-
 -- | Patterns which describe the static files that should be copied
 --   to the output directory.
 staticPatterns :: Pattern
 staticPatterns = "fonts/**"
             .||. "slides/**"
-            .||. "files/**"
+            .||. "publications/*.pdf"
+            .||. "publications/*.lhs"
+            .||. "publications/*.v"
             .||. "images/*.jpg"
             .||. "images/*.png"
 
@@ -62,6 +47,15 @@ staticFiles = match staticPatterns $ do
     compile copyFileCompiler
 
 --------------------------------------------------------------------------------
+
+-- | The context for blog posts.
+blogCtx :: Tags -> Context String
+blogCtx tags = mconcat
+    [ modificationTimeField "mtime" "%U"
+    , dateField "date" "%e %B %Y"
+    , tagsField "tags" tags
+    , defaultContext
+    ]
 
 -- | Processes all files related to the blog.
 blog :: Rules ()
@@ -106,11 +100,20 @@ blog = do
 
 --------------------------------------------------------------------------------
 
+publicationsPattern = "publications/*.markdown"
+
+talkCtx :: Context String
+talkCtx = mconcat
+    [ modificationTimeField "mtime" "%U"
+    , dateField "date" "%e %B %Y"
+    , defaultContext
+    ]
+
 -- |
 research :: Rules ()
 research = do
     -- build a page for every publications
-    match "publications/*" $ do
+    match publicationsPattern $ do
         route $ setExtension ".html"
         compile $ do
             pandocCompiler
@@ -124,7 +127,7 @@ research = do
     create ["publications.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll ("publications/*")
+            posts <- recentFirst =<< loadAll publicationsPattern
             let ctx = constField "title" "Publications" <>
                       listField "posts" talkCtx (return posts) <>
                       defaultContext
@@ -160,7 +163,7 @@ research = do
         route idRoute
         compile $ do
             talks  <- fmap (take 2) . recentFirst =<< loadAll "talks/*"
-            papers <- fmap (take 2) . recentFirst =<< loadAll "publications/*"
+            papers <- fmap (take 2) . recentFirst =<< loadAll publicationsPattern
 
             let researchContext =
                     listField "talks" defaultContext (return talks) <>
@@ -199,7 +202,7 @@ main = hakyllWith config $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            papers <- fmap (take 3) . recentFirst =<< loadAll "publications/*"
+            papers <- fmap (take 3) . recentFirst =<< loadAll publicationsPattern
 
             let indexContext =
                     constField "title" "Home" <>

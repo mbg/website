@@ -7,5 +7,11 @@ _site/
 dist/
 cabal.sandbox.config
 
+# Files (publications, slides, etc.)
+slides/
+publications/*.pdf
+publications/*.lhs
+publications/*.v
+
 # Drafts
 *.draft

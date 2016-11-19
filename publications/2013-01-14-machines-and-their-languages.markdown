@@ -5,7 +5,7 @@ authors: Michael B. Gale
 
 | Downloads |
 |:--------:|
-| [PDF](/files/g52mal-revision-guide.pdf)      |
+| [PDF](/publications/g52mal-revision-guide.pdf)      |
 
 ## Abstract
 

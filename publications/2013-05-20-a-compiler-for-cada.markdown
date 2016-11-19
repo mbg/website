@@ -5,7 +5,7 @@ authors: Michael B. Gale
 
 | Downloads |
 |:--------:|
-| [PDF](/files/dissertation.pdf)      |
+| [PDF](/publications/dissertation.pdf)      |
 | [Code](https://github.com/mbg/ncc)   |
 
 ## Abstract

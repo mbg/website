@@ -5,8 +5,8 @@ authors: Michael B. Gale
 
 | Downloads |
 |:--------:|
-| [PDF](/files/wsiw.pdf)      |
-| [Slides](/files/wsiw-slides.pdf)   |
+| [PDF](/publications/wsiw.pdf)      |
+| [Slides](/publications/wsiw-slides.pdf)   |
 
 ## Abstract
 
