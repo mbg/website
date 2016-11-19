@@ -1,0 +1,102 @@
+---
+title: Home
+---
+
+<div class="flex-container">
+    <div class="dynamic" style="padding-right: 40px;">
+        <p>
+            I am a PhD student at the <a href="http://www.cl.cam.ac.uk/">Computer Laboratory</a> of the
+            <a href="http://www.cam.ac.uk/">University of Cambridge</a> where I have been working on
+            <i>Programming with effect hierarchies</i> under the supervision of <a href="http://www.cl.cam.ac.uk/~am21/">Alan Mycroft</a>
+            since October 2013. I am a member of the <a href="http://www.cl.cam.ac.uk/research/pls/">Programming, Logic, and Semantics Group</a>,
+            the <a href="http://www.cl.cam.ac.uk/research/cprg/">Cambridge Programming Research Group</a>,
+            and <a href="http://www.darwin.cam.ac.uk/">Darwin College</a>.
+        </p>
+        <p>
+            My research interests focus around the design and implementation of programming languages, including their type systems.
+            I am particularly interested in languages which solve problems that larger and evolving software projects face, such as modularity and changing dependencies.
+            To this end, I primarily work with Haskell and other functional programming languages.
+            I am also interested in applying advances in programming languages to other fields, both within and outside of Computer Science.
+
+        </p>
+        <p>
+            I completed my BSc (Hons) in Computer Science at the University of Nottingham between September 2010 and October 2013.
+            My <a href="/publications/2013-05-20-a-compiler-for-cada.html">dissertation</a> deals with the design and implementation of a Haskell-like language with
+            syntactic sugar for state monads. It was supervised by <a href="http://www.cs.nott.ac.uk/~pszgmh/">Graham Hutton</a>. The code for the compiler is freely
+            available on <a href="https://github.com/mbg/ncc">GitHub</a>.
+        </p>
+        <p>
+            During my time at Nottingham, I wrote a book about automata theory, which eventually became a recommended text for the corresponding module there.
+            <a href="/publications/2013-01-14-machines-and-their-languages.html">It is freely available here</a>.
+        </p>
+        <p>
+            In my spare time, I enjoy cooking, punting, and video games. I am currently the <a href="http://dcsa.dar.cam.ac.uk/meet-dcsa-executive-comm">Admiral of the Punts</a> at Darwin College.
+        </p>
+        <p>
+            You can find me on various websites, including <a href="https://twitter.com/michaelbgale">Twitter</a>,
+            <a href="https://github.com/mbg">GitHub</a>,
+            <a href="https://facebook.com/michael.gale">Facebook</a>,
+            <a href="https://plus.google.com/100326607592110921293">Google+</a>, and
+            <a href="https://uk.linkedin.com/in/michaelbgale">LinkedIn</a>. I am happy to be contacted on any of these if you know me in person.
+            I still help moderate the <a href="https://www.reddit.com/r/UoN">/r/UoN</a> subreddit, which I founded in 2011.
+        </p>
+    </div>
+    <div class="card-column right">
+        <!--<div class="card z-depth-2">
+            <div class="title">
+                <span>Upcoming Talks &amp; Travel</span>
+                <div class="right"><a href="events/">View All</a></div>
+            </div>
+            <div class="list">
+                <div class="list-entry">
+                    <div class="flex-container">
+                        <div class="left">
+                            <div class="date">
+                                <span class="day">20</span>
+                                <span class="month">OCT</span>
+                            </div>
+                        </div>
+                        <div class="dynamic" style="padding: 5px 5px 5px 20px;">
+                            <div style="font-weight: 500; font-size: 16px;">Programming in Haskell</div>
+                            <div style="font-weight: 300; font-size: 14px;">Computer Lab, Cambridge</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-entry">
+                    <div class="flex-container">
+                        <div class="left">
+                            <div class="date range">
+                                <span class="day">04</span>
+                                <span class="month">NOV</span>
+                            </div>
+                            <div class="date end">
+                                <span class="day">05</span>
+                                <span class="month">NOV</span>
+                            </div>
+                        </div>
+                        <div class="dynamic" style="padding: 5px 5px 5px 20px;">
+                            <div style="font-weight: 500; font-size: 16px;">CodeMesh 2015</div>
+                            <div style="font-weight: 300; font-size: 14px;">London, UK</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="card z-depth-2">
+            <div class="title">
+                <span>Most Recent Publications</span>
+                <div class="right"><a href="/publications.html">View All</a></div>
+            </div>
+            <div class="list">
+                $for(papers)$
+                <div class="list-entry">
+                    <a href="$url$">
+                        <div style="font-weight: 500; font-size: 16px;">$title$</div>
+                        <div style="font-weight: 300; font-size: 14px;">$authors$</div>
+                    </a>
+                </div>
+                $endfor$
+            </div>
+        </div>
+    </div>
+</div>

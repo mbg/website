@@ -1,0 +1,11 @@
+# Hakyll-generated files
+_cache/
+_site/
+
+# Cabal & Cabal sandboxes
+.cabal-sandbox/
+dist/
+cabal.sandbox.config
+
+# Drafts
+*.draft

@@ -1,0 +1,97 @@
+---
+title: Research
+---
+
+<div class="flex-container no-hide">
+    <div class="dynamic" style="padding-right: 40px;">
+        <p>
+            My research interests focus around the design and implementation of programming languages, including their type systems.
+            I am particularly interested in languages which solve problems that larger and evolving software projects face, such as modularity and changing dependencies.
+            To this end, I primarily work with Haskell and other functional programming languages.
+            I am also interested in applying advances in programming languages to other fields, both within and outside of Computer Science.
+            Below are summaries of the major research projects and areas that I have worked on in recent years.
+        </p>
+        <h3>Effect hierarchies</h3>
+        <p>
+            My PhD research is primarily concerned with <i>effect hierarchies</i>. In object-oriented programming languages, programs are structured around their state, which additionally provides
+            a means of structuring programs through encapsulation. In my paper, <a href="/publications/2015-10-18-a-tale-of-two-abstractions.html">A tale of two abstractions: monad transformers and object-orientation</a>,
+            I establish a relationship between object inheritance and state monad transformers. That is, the effect of stacking multiple state monad transformers is the same as that of inheriting
+            from classes in object-oriented languages. I have implemented <a href="https://github.com/mbg/monadic-state-hierarchies">a Haskell library</a> based on this idea which uses Template Haskell to allow users to specify and use stacks of state monad transformers using a
+            surface syntax which is almost identical to an object-oriented language and drastically simplifies the use of monad transformers. If inheritance corresponds to stacking state monad transformers
+            and thinking about state monad transformer stacks in this way simplifies their usage, then the question is what does stacking arbitrary monad transformers correspond to and could it simplify
+            programming with monad transformers in general?
+        </p>
+        <p>
+            My goal is to answer this question by developing a language that resembles an object-oriented programming language, but in which classes are parameterised by the underlying effect. I
+            refer to such classes as <i>effect classes</i>. That is, classes in object-oriented programming are then just effect classes parameterised by the state effect. This idea would
+            lead to a generalisation of object-oriented programming from just state to arbitrary effects and a paradigm for programming with effects which is significantly more accessible than
+            monad transformers currently are.
+        </p>
+        <h3>Package systems</h3>
+        <p>
+            Mark Florisson and I worked on formalising the problem of dependency hell (or package hell) and specifying a formal system for packages in which dependency hell does not exist.
+            We describe our solution in our <a href="/publications/2016-03-16-alice-in-package-hell.html">Alice in Package Hell</a> paper. In a nutshell, our system accomplishes this by
+            distinguishing between <i>private</i> and <i>shared dependencies</i> in addition to using structural constraints (interfaces) for dependency resolution rather than the more
+            common nominal constraints (version numbers). The two fundamental reasons that dependency hell occurs are: firstly, most programming languages use version ranges to determine whether
+            some version of a package can be used to resolve a dependency which is overly restrictive as it does not encode the actual constraints a package has at its dependencies. Secondly,
+            they do not allow multiple versions of the same package to be linked into a program so that all parts of a program must agree on the same version of a package.
+        </p>
+        <p>
+            The latter is a problem when, for example, multiple dependencies of one package have a common dependency (<i>i.e.</i> a diamond-shaped dependency tree), but require different
+            versions of that common dependency. The reason that languages do not typically permit this is related to data flow because the compiler cannot ensure that data from one version of a
+            package flows into another version of the same package. In our system, private and shared dependencies address this problem. Definitions imported from a private dependency may
+            not &quot;leak&quot; out of a package and can therefore never flow into a different part of the program where a different version of the dependency might be used. Shared dependencies
+            are parameters of a package and must be instantiated when the package is imported. The importing package may shared the same instance of a package between multiple other packages,
+            thus allowing data to flow between those packages but only those.
+        </p>
+
+        <h3>Artificial Immune Systems</h3>
+        <p>
+            I collaborated with <a href="http://www.cs.nott.ac.uk/~pszjg1/">Julie Greensmith</a> at the
+            <a href="http://www.nottingham.ac.uk/computerscience/index.aspx">University of Nottingham</a>
+            on the specification of Artifical Immune System algorithms using purely functional programming languages.
+            Our <a href="2013-12-04-the-deterministic-dca-cookbook.html">The Deterministic DCA Cookbook</a> paper gives a precise specification
+            of the deterministic dendritic cell algorithm using pure mathematical functions such that the implementation in a purely-functional
+            programming language, namely Haskell, is almost identical to the specification.
+        </p>
+        <p>
+            We conducted some follow-up work into implementing an embedded domain-specific language for the specification of Aritical Immune System algorithms.
+            This eDSL is sufficiently general to encode all of the key algorithms in the field of Artifical Immune Systems. We believe that this will provide a common language
+            in which researchers can formalise and share their algorithms. Our motto is that <i>the specification is the implementation</i>.
+        </p>
+    </div>
+    <div class="card-column right">
+        <div class="card z-depth-2">
+            <div class="title">
+                <span>Most Recent Publications</span>
+                <div class="right"><a href="/publications.html">View All</a></div>
+            </div>
+            <div class="list">
+                $for(papers)$
+                <div class="list-entry">
+                    <a href="$url$">
+                        <div style="font-weight: 500; font-size: 16px;">$title$</div>
+                        <div style="font-weight: 300; font-size: 14px;">$authors$</div>
+                    </a>
+                </div>
+                $endfor$
+            </div>
+        </div>
+        <div class="card z-depth-2">
+            <div class="title">
+                <span>Past Talks</span>
+                <div class="right"><a href="/talks.html">View All</a></div>
+            </div>
+            <div class="list">
+                $for(talks)$
+                <div class="list-entry">
+                    <a href="$url$">
+                        <div style="font-weight: 500; font-size: 16px;">$title$</div>
+                        <div style="font-weight: 300; font-size: 14px;">$venue$</div>
+                    </a>
+                </div>
+                $endfor$
+            </div>
+        </div>
+    </div>
+</div>
