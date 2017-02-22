@@ -177,6 +177,20 @@ research = do
 
 --------------------------------------------------------------------------------
 
+teaching :: Rules ()
+teaching = do
+    match "teaching/**" $ do
+        route $ setExtension ".html"
+        compile $ do
+            pandocCompiler
+                >>= saveSnapshot "content"
+                >>= return . fmap demoteHeaders
+                >>= loadAndApplyTemplate "templates/exercise.html" defaultContext
+                >>= loadAndApplyTemplate defaultTemplate defaultContext
+                >>= relativizeUrls
+                
+--------------------------------------------------------------------------------
+
 -- | The main entry point of this program.
 main :: IO ()
 main = hakyllWith config $ do
@@ -190,6 +204,7 @@ main = hakyllWith config $ do
 
     blog
     research
+    teaching
 
     match (fromList staticPages) $ do
         route idRoute

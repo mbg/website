@@ -273,7 +273,8 @@ content h1 {
     padding-right: 5px;
 }
 
-content h3 {
+content h3,
+content h4 {
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -302,7 +303,7 @@ content a:visited {
     padding-right: 5px;
 }
 
-.sourceCode {
+div.sourceCode {
     padding-left: 5px;
     padding-right: 5px;
 }
